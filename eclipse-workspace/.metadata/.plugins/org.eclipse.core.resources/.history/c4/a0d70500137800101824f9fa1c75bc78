@@ -1,0 +1,28 @@
+package org.changepond;
+import java.io.File;
+
+public class File1Demo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		File f = new File("FileDemo");
+//		
+//		if(f.exists()) {
+//		System.out.println("Folder exist");
+//		}
+//		else {
+//		f.mkdir();
+//		System.out.println("Folder created succesfully");
+//		}
+		File f2 = new File("FileHandDemo");
+		
+		if(f.exists()) {
+			System.out.println("Folder exist");
+		}
+		else {
+			f.mkdir();
+			System.out.println("Folder created succesfully");
+		}
+		
+}
+}

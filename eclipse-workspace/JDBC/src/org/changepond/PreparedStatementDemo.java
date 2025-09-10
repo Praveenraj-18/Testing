@@ -1,0 +1,34 @@
+package org.changepond;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+import java.sql.PreparedStatement;
+ 
+public class PreparedStatementDemo {
+ 
+	public static void main(String[] args) throws SQLException {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Student Details\nId: ");
+		int id = sc.nextInt();
+		System.out.println("First Name: ");
+		String fname = sc.next();
+		System.out.println("Last Name: ");
+		String lname = sc.next();
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbcdemo","root","Database@123");
+//		Statement st = con.createStatement();
+//		String sql = ("insert into student values(1,'praveen','raj')");
+		PreparedStatement ps = con.prepareStatement("insert into student values(?,?,?)");
+		
+		ps.setInt(1, id);
+		ps.setString(2, fname);
+		ps.setString(3, lname);
+		int a = ps.executeUpdate();
+		if(a>0) {
+			System.out.println(a+" Record inserted successfully");
+		}
+	}
+ 
+}

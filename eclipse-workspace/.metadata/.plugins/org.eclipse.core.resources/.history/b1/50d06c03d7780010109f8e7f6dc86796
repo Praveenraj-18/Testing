@@ -1,0 +1,12 @@
+package org.changepond;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class ConnectionDemo {
+
+	public static void main(String[] args) {
+		
+		Connection con = DriverManager.getConnection("","root","Database@123");
+	}
+}
