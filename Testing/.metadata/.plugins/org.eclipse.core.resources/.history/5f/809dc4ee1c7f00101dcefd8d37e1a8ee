@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <parameter name="us" value="vijay"/>
+    <classes>
+      <class name="demo.CrossBrowserTestingDemo"/>
+       <parameter name="browser" value="chrome"/>
+       <parameter name="un" value="testuser"/>
+       <parameter name="pwd" value="password123"/>
+    </classes>
+  </test>
+</suite>

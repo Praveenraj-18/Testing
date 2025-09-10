@@ -1,0 +1,38 @@
+package demo;
+
+import org.testng.annotations.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.DataProvider;
+
+public class DataProviderDemo {
+  @Test(dataProvider = "dp")
+  public void login(String user, String pass) throws Exception {
+	  WebDriver wd = new ChromeDriver();
+	  wd.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+	  wd.manage().window().maximize();
+	  
+	  Thread.sleep(4000);
+	  WebElement un = wd.findElement(By.name("username"));
+	  un.sendKeys(user);
+	  
+	  Thread.sleep(4000);
+	  WebElement pwd = wd.findElement(By.name("password"));
+	  pwd.sendKeys(pass);
+	  
+	  Thread.sleep(4000);
+	  WebElement login = wd.findElement(By.xpath("//button[@type='submit']"));
+	  login.click();
+  }
+
+  @DataProvider
+  public Object[][] dp() {
+    return new Object[][] {
+      new Object[] { "Admin", "admin123" },
+      new Object[] { "admin", "Admin123" },
+      new Object[] { "1234", "123" },
+    };
+  }
+}

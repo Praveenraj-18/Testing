@@ -1,0 +1,23 @@
+package demo;
+
+import org.testng.annotations.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.DataProvider;
+
+public class TestTrackDemo {
+  @Test(dataProvider = "dp")
+  public void f(Integer n, String s) {
+	  WebDriver wd = new ChromeDriver();
+	  wd.get("https://testtrack.org/login-demo");
+	  wd.manage().window().maximize();
+  }
+
+  @DataProvider
+  public Object[][] dp() {
+    return new Object[][] {
+      new Object[] { 1, "a" },
+      new Object[] { 2, "b" },
+    };
+  }
+}

@@ -1,0 +1,42 @@
+package demo;
+
+import java.io.File;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+import com.google.common.io.Files;
+
+
+public class ScreenshotDemo {
+  @Test
+  public void login() throws Exception {
+	  WebDriver wd = new ChromeDriver();
+	  wd.get("https://demoblaze.com/");
+	  
+	  Thread.sleep(3000);
+	  WebElement signup = wd.findElement(By.xpath("//a[@data-target='#signInModal']"));
+	  signup.click();
+	  
+	  Thread.sleep(3000);
+	  WebElement username = wd.findElement(By.xpath("//a[@data-target='#signInModal']"));
+	  username.sendKeys("");
+	  
+	  Thread.sleep(3000);
+	  WebElement password = wd.findElement(By.xpath("//a[@data-target='#signInModal']"));
+	  password.sendKeys("");
+	  
+	  File f =((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
+	  Files.copy(f,new File ("C:\\Users\\Praveenraj.t\\Documents\\screenshot\\p.jpeg"));
+	  
+	  
+	  
+	  
+	  
+  }
+}

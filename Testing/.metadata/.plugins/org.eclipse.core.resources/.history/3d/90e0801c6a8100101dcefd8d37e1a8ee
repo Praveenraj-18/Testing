@@ -1,0 +1,19 @@
+package demo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class ScreenshotDemo {
+  @Test
+  public void login() {
+	  WebDriver wd = new ChromeDriver();
+	  wd.get("https://demoblaze.com/");
+	  WebElement signup = wd.findElement(By.id("signin2"));
+	  signup.click();
+	  
+	  
+  }
+}
